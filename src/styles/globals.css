@@ -38,8 +38,6 @@ body[data-theme="dark"] {
   --Text: white;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: light;
-  }
+ul {
+  list-style-type: none;
 }

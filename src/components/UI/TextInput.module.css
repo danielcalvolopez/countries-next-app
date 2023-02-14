@@ -1,0 +1,25 @@
+.input {
+  font-size: 14px;
+  height: 55px;
+  width: 480px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  padding: 0 70px;
+  box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, 5.32%);
+  background-color: var(--InputBG);
+  transition: background 0.25s ease-in-out;
+  color: var(--Text);
+}
+
+.input::placeholder {
+  color: var(--InputPlaceholder);
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 95px;
+  fill: var(--InputPlaceholder);
+}
