@@ -1,9 +1,10 @@
 import classes from "./SelectDrop.module.css";
 import { BsChevronDown } from "react-icons/bs";
-import { useState } from "react";
+import { useContext } from "react";
+import { CountriesContext } from "@/context/Countries/CountriesContext";
 
 const SelectDrop = ({ title, data }) => {
-  const [toggle, setToggle] = useState(false);
+  const { toggle, setToggle } = useContext(CountriesContext);
 
   const handleOpenSelect = () => {
     setToggle((prev) => !prev);
@@ -14,6 +15,7 @@ const SelectDrop = ({ title, data }) => {
         <div>{title}</div>
         <BsChevronDown size={15} />
       </div>
+
       {toggle && (
         <ul className={classes.list}>
           {data.map((item) => (

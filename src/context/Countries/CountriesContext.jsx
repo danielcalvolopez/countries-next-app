@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useCallback, useEffect, useState } from "react";
 
 export const CountriesContext = createContext();
 
@@ -7,21 +7,24 @@ const CountriesContextProvider = ({ children }) => {
   const [searchedCountry, setSearchedCountry] = useState(undefined);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [allCountries, setAllcountries] = useState(undefined);
+  const [toggle, setToggle] = useState(false);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          `https://restcountries.com/v2/name/${enteredCountryName}`
-        );
-        const data = await response.json();
-        setSearchedCountry(data);
-      } catch (error) {
-        console.log(error);
+  const fetchCountries = useCallback(async () => {
+    setIsLoading(true);
+    setError(null);
+    try {
+      const response = await fetch("https://restcountries.com/v3.1/all");
+      if (!response.ok) {
+        throw new Error("Something went wrong.");
       }
-    };
-    fetchData();
-  }, [enteredCountryName]);
+      const countries = await response.json();
+      setAllcountries(countries);
+    } catch (error) {
+      setError(error.message);
+    }
+    setIsLoading(false);
+  }, []);
 
   const values = {
     searchedCountry,
@@ -32,6 +35,10 @@ const CountriesContextProvider = ({ children }) => {
     isLoading,
     error,
     setError,
+    allCountries,
+    fetchCountries,
+    toggle,
+    setToggle,
   };
 
   return (

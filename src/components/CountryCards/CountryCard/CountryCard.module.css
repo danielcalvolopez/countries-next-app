@@ -6,22 +6,27 @@
   color: var(--Text);
   box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, 5.32%);
   transition: background 0.25s ease-in-out;
+  cursor: pointer;
 }
 
 .country-card-container .flag {
   height: 50%;
   width: 100%;
   object-fit: cover;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .country-card-container .country {
   font-size: 18px;
   font-weight: bold;
+  letter-spacing: 1px;
 }
 
 .country-card-container .details {
   font-size: 14px;
   font-weight: 400;
+  letter-spacing: 0.5px;
 }
 
 .country-card-container .details .title {
