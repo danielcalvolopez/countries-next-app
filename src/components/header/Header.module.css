@@ -16,3 +16,16 @@
   gap: 10px;
   cursor: pointer;
 }
+
+@media (max-width: 700px) {
+  .header {
+    padding: 20px 20px;
+  }
+  .title {
+    font-size: 14px;
+  }
+
+  .header .mode {
+    font-size: 12px;
+  }
+}

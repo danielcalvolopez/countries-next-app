@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
+  margin-left: 10px;
 }
 
 .select-drop-container .title {
@@ -38,4 +39,11 @@
 
 .select-drop-container .list .item {
   cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .select-drop-container {
+    margin-left: 0;
+    font-size: 12px;
+  }
 }

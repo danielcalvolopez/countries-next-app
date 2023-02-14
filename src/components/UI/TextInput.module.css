@@ -1,6 +1,6 @@
 .input {
   font-size: 14px;
-  height: 55px;
+  height: 56px;
   width: 480px;
   border-radius: 5px;
   border: none;
@@ -22,4 +22,22 @@
   position: absolute;
   left: 95px;
   fill: var(--InputPlaceholder);
+}
+
+@media (max-width: 700px) {
+  .input {
+    width: 100%;
+    font-size: 12px;
+  }
+
+  .input::placeholder {
+    font-size: 12px;
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 47px;
+    top: 126px;
+    fill: var(--InputPlaceholder);
+  }
 }

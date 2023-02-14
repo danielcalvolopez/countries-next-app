@@ -1,11 +1,12 @@
 import Head from "next/head";
-import styles from "@/styles/Home.module.css";
 import Header from "@/components/Header/Header";
 import SearchSection from "@/components/SearchSection/SearchSection";
+import CountryCards from "@/components/CountryCards/CountryCards";
+import CountriesContextProvider from "@/context/Countries/CountriesContext";
 
-export default function Home() {
+const Home = () => {
   return (
-    <>
+    <CountriesContextProvider>
       <Head>
         <title>Countries App</title>
         <meta name="description" content="" />
@@ -14,6 +15,9 @@ export default function Home() {
       </Head>
       <Header />
       <SearchSection />
-    </>
+      <CountryCards />
+    </CountriesContextProvider>
   );
-}
+};
+
+export default Home;

@@ -1,3 +1,5 @@
+import { CountriesContext } from "@/context/Countries/CountriesContext";
+import { useContext, useEffect, useState } from "react";
 import SelectDrop from "../UI/SelectDrop";
 import TextInput from "../UI/TextInput";
 import classes from "./SearchSection.module.css";
@@ -5,9 +7,20 @@ import classes from "./SearchSection.module.css";
 const continents = ["Africa", "America", "Asia", "Europe", "Oceania"];
 
 const SearchSection = () => {
+  const { enteredCountryName, setEnteredCountryName } =
+    useContext(CountriesContext);
+
+  const handleSearchInput = (event) => {
+    setEnteredCountryName(event.target.value);
+  };
+
   return (
     <div className={classes["search-section"]}>
-      <TextInput placeholder="Search for a country..." />
+      <TextInput
+        value={enteredCountryName}
+        onChange={handleSearchInput}
+        placeholder="Search for a country..."
+      />
       <SelectDrop title="Filter by Region" data={continents} />
     </div>
   );
