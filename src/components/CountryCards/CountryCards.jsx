@@ -1,5 +1,5 @@
 import { CountriesContext } from "@/context/Countries/CountriesContext";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import CountryCard from "./CountryCard/CountryCard";
 import classes from "./CountryCards.module.css";
 
@@ -11,9 +11,19 @@ const CountryCards = () => {
     fetchCountries();
   }, [fetchCountries]);
 
-  const filteredByRegion = allCountries?.filter((country) => {
-    return country.region === currentRegion;
-  });
+  const filteredByRegion = allCountries
+    ?.filter((country) => {
+      return country.region === currentRegion;
+    })
+    .sort((a, b) => {
+      if (a.name.common < b.name.common) {
+        return -1;
+      }
+      if (a.name.common > b.name.common) {
+        return 1;
+      }
+      return 0;
+    });
 
   return (
     <div className={classes["country-cards-container"]}>

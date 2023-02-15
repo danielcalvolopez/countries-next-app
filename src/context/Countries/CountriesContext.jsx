@@ -21,6 +21,16 @@ const CountriesContextProvider = ({ children }) => {
       }
       const countries = await response.json();
 
+      const sortedCountries = countries.sort((a, b) => {
+        if (a.name.common < b.name.common) {
+          return -1;
+        }
+        if (a.name.common > b.name.common) {
+          return 1;
+        }
+        return 0;
+      });
+
       if (enteredCountryName !== "") {
         const result = countries.filter((country) => {
           const lowerCaseName = country.name.common.toLowerCase();
@@ -28,7 +38,7 @@ const CountriesContextProvider = ({ children }) => {
         });
         setAllCountries(result);
       } else {
-        setAllCountries(countries);
+        setAllCountries(sortedCountries);
       }
     } catch (error) {
       setError(error.message);

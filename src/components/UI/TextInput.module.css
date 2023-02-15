@@ -10,12 +10,17 @@
   background-color: var(--InputBG);
   transition: background 0.25s ease-in-out;
   color: var(--Text);
+  border: 2px solid transparent;
 }
 
 .input::placeholder {
   color: var(--InputPlaceholder);
   font-family: inherit;
   font-size: 14px;
+}
+
+.input:focus {
+  border: 2px solid var(--HoverText);
 }
 
 .search-icon {
