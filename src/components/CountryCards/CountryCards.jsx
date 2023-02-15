@@ -11,19 +11,9 @@ const CountryCards = () => {
     fetchCountries();
   }, [fetchCountries]);
 
-  const filteredByRegion = allCountries
-    ?.filter((country) => {
-      return country.region === currentRegion;
-    })
-    .sort((a, b) => {
-      if (a.name.common < b.name.common) {
-        return -1;
-      }
-      if (a.name.common > b.name.common) {
-        return 1;
-      }
-      return 0;
-    });
+  const filteredByRegion = allCountries?.filter((country) => {
+    return country.region === currentRegion;
+  });
 
   return (
     <div className={classes["country-cards-container"]}>
