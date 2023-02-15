@@ -4,7 +4,7 @@ import SelectDrop from "../UI/SelectDrop";
 import TextInput from "../UI/TextInput";
 import classes from "./SearchSection.module.css";
 
-const regions = ["Africa", "America", "Asia", "Europe", "Oceania"];
+const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
 
 const SearchSection = () => {
   const { enteredCountryName, setEnteredCountryName } =

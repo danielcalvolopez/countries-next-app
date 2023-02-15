@@ -4,7 +4,8 @@ import { useContext } from "react";
 import { CountriesContext } from "@/context/Countries/CountriesContext";
 
 const SelectDrop = ({ title, data }) => {
-  const { toggle, setToggle } = useContext(CountriesContext);
+  const { toggle, setToggle, setCurrentRegion, currentRegion } =
+    useContext(CountriesContext);
 
   const handleOpenSelect = () => {
     setToggle((prev) => !prev);
@@ -19,9 +20,18 @@ const SelectDrop = ({ title, data }) => {
       {toggle && (
         <ul className={classes.list}>
           {data.map((item) => (
-            <li className={classes.item} key={item}>
+            <div
+              onClick={() => {
+                setCurrentRegion(item);
+                setToggle((prev) => !prev);
+              }}
+              className={
+                currentRegion === item ? classes["selected-item"] : classes.item
+              }
+              key={item}
+            >
               {item}
-            </li>
+            </div>
           ))}
         </ul>
       )}

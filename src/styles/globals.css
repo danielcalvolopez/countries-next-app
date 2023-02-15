@@ -13,14 +13,6 @@ body {
   background-color: var(--Background);
   transition: background 0.25s ease-in-out;
   overscroll-behavior: none;
-
-  /* DarkMode */
-  --DarkBlueNight: hsl(209, 23%, 22%);
-  --VeryDarkBlueNightBG: hsl(207, 26%, 17%);
-  /* LightMode */
-  --VeryDarkBlueDayText: hsl(200, 15%, 8%);
-  --DarkGrayDayInput: hsl(0, 0%, 52%);
-  --VeryLightGrayDayBG: hsl(0, 0%, 98%);
 }
 
 body[data-theme="light"] {
@@ -29,6 +21,7 @@ body[data-theme="light"] {
   --InputBG: white;
   --InputPlaceholder: hsl(0, 0%, 52%);
   --Text: hsl(200, 15%, 8%);
+  --HoverText: hsla(200, 15%, 8%, 0.604);
 }
 
 body[data-theme="dark"] {
@@ -37,6 +30,7 @@ body[data-theme="dark"] {
   --InputBG: hsl(209, 23%, 22%);
   --InputPlaceholder: white;
   --Text: white;
+  --HoverText: rgba(255, 255, 255, 0.67);
 }
 
 ul {

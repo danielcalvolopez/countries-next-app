@@ -9,6 +9,7 @@ const CountriesContextProvider = ({ children }) => {
   const [error, setError] = useState(null);
   const [allCountries, setAllcountries] = useState(undefined);
   const [toggle, setToggle] = useState(false);
+  const [currentRegion, setCurrentRegion] = useState(undefined);
 
   const fetchCountries = useCallback(async () => {
     setIsLoading(true);
@@ -39,6 +40,8 @@ const CountriesContextProvider = ({ children }) => {
     fetchCountries,
     toggle,
     setToggle,
+    currentRegion,
+    setCurrentRegion,
   };
 
   return (
