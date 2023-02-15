@@ -2,12 +2,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 40px;
-
-  /* display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: left; */
-  /* gap: 60px; */
   padding: 0 70px;
 }
 

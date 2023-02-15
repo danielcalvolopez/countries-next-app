@@ -1,4 +1,4 @@
-import React, { createContext, useCallback, useEffect, useState } from "react";
+import React, { createContext, useCallback, useState } from "react";
 
 export const CountriesContext = createContext();
 
@@ -7,7 +7,7 @@ const CountriesContextProvider = ({ children }) => {
   const [searchedCountry, setSearchedCountry] = useState(undefined);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [allCountries, setAllcountries] = useState(undefined);
+  const [allCountries, setAllCountries] = useState(undefined);
   const [toggle, setToggle] = useState(false);
   const [currentRegion, setCurrentRegion] = useState(undefined);
 
@@ -20,12 +20,21 @@ const CountriesContextProvider = ({ children }) => {
         throw new Error("Something went wrong.");
       }
       const countries = await response.json();
-      setAllcountries(countries);
+
+      if (enteredCountryName !== "") {
+        const result = countries.filter((country) => {
+          const lowerCaseName = country.name.common.toLowerCase();
+          return lowerCaseName === enteredCountryName;
+        });
+        setAllCountries(result);
+      } else {
+        setAllCountries(countries);
+      }
     } catch (error) {
       setError(error.message);
     }
     setIsLoading(false);
-  }, []);
+  }, [enteredCountryName]);
 
   const values = {
     searchedCountry,
@@ -42,6 +51,7 @@ const CountriesContextProvider = ({ children }) => {
     setToggle,
     currentRegion,
     setCurrentRegion,
+    setAllCountries,
   };
 
   return (

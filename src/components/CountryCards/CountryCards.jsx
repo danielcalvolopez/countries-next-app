@@ -1,5 +1,5 @@
 import { CountriesContext } from "@/context/Countries/CountriesContext";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import CountryCard from "./CountryCard/CountryCard";
 import classes from "./CountryCards.module.css";
 
