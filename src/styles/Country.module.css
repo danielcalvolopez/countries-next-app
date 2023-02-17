@@ -1,0 +1,72 @@
+.body-container {
+  display: flex;
+  flex-direction: column;
+  padding: 60px 60px;
+}
+
+.body-container .body-content {
+  margin-top: 60px;
+  display: flex;
+  align-items: center;
+  gap: 120px;
+  color: var(--Text);
+}
+
+.body-container .body-content .flag {
+  height: 400px;
+  width: 560px;
+  background-color: var(--Text);
+  border-radius: 5px;
+}
+
+.body-container .body-content .info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-weight: 600;
+}
+
+.body-container .body-content .info-container .name {
+  font-size: 32px;
+}
+
+.body-container .body-content .info-container .details {
+  display: flex;
+  gap: 100px;
+  width: 100%;
+}
+
+.body-container .body-content .info-container .details .details-column {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  width: 100%;
+}
+
+.body-container .body-content .info-container .details .details-content {
+  font-weight: 100;
+}
+
+.body-container .body-content .info-container .borders-container {
+  margin-top: 40px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.body-container .body-content .info-container .borders-container .borders {
+  display: flex;
+  gap: 10px;
+}
+
+.body-container .body-content .info-container .borders-container .border {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 96px;
+  height: 28px;
+  background-color: var(--Secondary);
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 300;
+}
