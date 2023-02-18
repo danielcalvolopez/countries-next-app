@@ -1,8 +1,9 @@
+import Link from "next/link";
 import classes from "./CountryCard.module.css";
 
 const CountryCard = ({ population, region, capital, name, flag }) => {
   return (
-    <div className={classes["country-card-container"]}>
+    <Link href={`./${name}`} className={classes["country-card-container"]}>
       <img className={classes.flag} src={flag} />
       <div className={classes.info}>
         <p className={classes.country}>{name}</p>
@@ -18,7 +19,7 @@ const CountryCard = ({ population, region, capital, name, flag }) => {
           </p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

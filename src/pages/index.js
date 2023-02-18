@@ -1,10 +1,14 @@
 import Head from "next/head";
-import Header from "@/components/Header/Header";
 import SearchSection from "@/components/SearchSection/SearchSection";
 import CountryCards from "@/components/CountryCards/CountryCards";
 import { CountriesContext } from "@/context/Countries/CountriesContext";
 import { useContext } from "react";
 import Backdrop from "@/components/UI/Backdrop";
+import dynamic from "next/dynamic";
+
+const Header = dynamic(() => import("../components/Header/Header"), {
+  ssr: false,
+});
 
 const Home = () => {
   const { toggle, setToggle } = useContext(CountriesContext);

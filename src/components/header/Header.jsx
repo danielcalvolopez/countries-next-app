@@ -1,16 +1,34 @@
 import classes from "./Header.module.css";
 import { BsFillSunFill, BsMoonFill } from "react-icons/bs";
 import { useEffect, useState } from "react";
+import useLocalStorage from "@/hooks/useLocalStorage";
 
 const Header = () => {
-  const [activeTheme, setActiveTheme] = useState("light");
+  const { setLocalStorage, getLocalStorage } = useLocalStorage();
+
+  const [activeTheme, setActiveTheme] = useState(
+    document.body.dataset.theme || "light"
+  );
+  const inactiveTheme = activeTheme === "light" ? "dark" : "light";
+
+  useEffect(() => {
+    document.body.dataset.theme = activeTheme;
+    window.localStorage.setItem("theme", activeTheme);
+  }, [activeTheme]);
+
+  useEffect(() => {
+    const savedTheme = getLocalStorage("theme");
+    savedTheme && setActiveTheme(savedTheme);
+  }, []);
 
   const handleDarkTheme = () => {
-    setActiveTheme("dark");
+    setActiveTheme(inactiveTheme);
+    setLocalStorage("theme", activeTheme);
   };
 
   const handleLightTheme = () => {
-    setActiveTheme("light");
+    setActiveTheme(inactiveTheme);
+    setLocalStorage("theme", activeTheme);
   };
 
   useEffect(() => {
