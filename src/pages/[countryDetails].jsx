@@ -64,7 +64,8 @@ const country = () => {
                         key={name.official}
                         className={classes["details-content"]}
                       >
-                        {name.official}{" "}
+                        {name.official}
+                        {name.official.length > 1 ? ", " : " "}
                       </span>
                     ))}
                   </p>
