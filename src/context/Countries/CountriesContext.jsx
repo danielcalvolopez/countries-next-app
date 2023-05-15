@@ -30,7 +30,6 @@ const CountriesContextProvider = ({ children }) => {
         }
         return 0;
       });
-
       if (enteredCountryName !== "") {
         const result = countries.filter((country) => {
           const lowerCaseName = country.name.common.toLowerCase();
